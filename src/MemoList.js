@@ -24,9 +24,10 @@ export default function MemoList({
 
   return (
     <>
-      <h1>{isEditable ? "編集" : "一覧"}</h1>
-      <ul>{listItems}</ul>
-      <button onClick={addItem}>+</button>
+      <div class="content_box">
+        <ul>{listItems}</ul>
+        <button onClick={addItem}>+</button>
+      </div>
     </>
   );
 }

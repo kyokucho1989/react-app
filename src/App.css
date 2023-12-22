@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.Memo_container {
+  border: solid 0px;
+  padding: 0 16px;
+  margin: 16px;
+  width: 800px;
+}
+
+.Memo_detail {
+  border: solid 0px;
+  border-color: #282c34;
+  margin: 16px 0px;
+}
+
+.content_box {
+  border: solid 0px;
+  margin: 16px;
+  border-color: #282c34;
+  width: 300px;
+  float: left;
+}

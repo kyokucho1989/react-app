@@ -12,20 +12,23 @@ function App() {
 
   return (
     <>
-      <MemoList
-        isEditable={isEditable}
-        setIsEditable={setIsEditable}
-        setEditId={setEditId}
-        items={items}
-        setItems={setItems}
-      />
-      <MemoDetail
-        isEditable={isEditable}
-        setIsEditable={setIsEditable}
-        editId={editId}
-        items={items}
-        setItems={setItems}
-      />
+      <div class="Memo_container">
+        <h1>{isEditable ? "編集" : "一覧"}</h1>
+        <MemoList
+          isEditable={isEditable}
+          setIsEditable={setIsEditable}
+          setEditId={setEditId}
+          items={items}
+          setItems={setItems}
+        />
+        <MemoDetail
+          isEditable={isEditable}
+          setIsEditable={setIsEditable}
+          editId={editId}
+          items={items}
+          setItems={setItems}
+        />
+      </div>
     </>
   );
 }

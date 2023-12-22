@@ -33,15 +33,16 @@ export default function MemoDetail({
       {!isEditable ? (
         <></>
       ) : (
-        <div>
-          <h1>詳細</h1>
-          <form method="post" onSubmit={saveItems}>
-            <textarea name="postContent" defaultValue={items[editId]} />
-            <button type="submit">編集</button>
-            <button type="delete" onClick={deleteItems}>
-              削除
-            </button>
-          </form>
+        <div class="content_box">
+          <div class="content">
+            <form method="post" onSubmit={saveItems}>
+              <textarea name="postContent" defaultValue={items[editId]} />
+              <button type="submit">編集</button>
+              <button type="delete" onClick={deleteItems}>
+                削除
+              </button>
+            </form>
+          </div>
         </div>
       )}
     </>
