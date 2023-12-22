@@ -15,7 +15,6 @@ function App() {
       <MemoList
         isEditable={isEditable}
         setIsEditable={setIsEditable}
-        editId={editId}
         setEditId={setEditId}
         items={items}
         setItems={setItems}
@@ -24,7 +23,6 @@ function App() {
         isEditable={isEditable}
         setIsEditable={setIsEditable}
         editId={editId}
-        setEditId={setEditId}
         items={items}
         setItems={setItems}
       />

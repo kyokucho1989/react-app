@@ -1,7 +1,6 @@
 export default function MemoList({
   isEditable,
   setIsEditable,
-  editId,
   setEditId,
   items,
   setItems,
@@ -14,8 +13,7 @@ export default function MemoList({
 
   function editItem(e) {
     setIsEditable(true);
-    let edid = e.target.id;
-    setEditId(edid);
+    setEditId(e.target.id);
   }
 
   function addItem() {

@@ -2,7 +2,6 @@ export default function MemoDetail({
   isEditable,
   setIsEditable,
   editId,
-  setEditId,
   items,
   setItems,
 }) {
