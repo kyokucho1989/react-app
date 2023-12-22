@@ -1,22 +1,34 @@
 import "./App.css";
+import MemoList from "./MemoList.js";
+import MemoDetail from "./MemoDetail.js";
+import { useState } from "react";
 
 function App() {
+  const itemsFromStorage = JSON.parse(localStorage.getItem("items"));
+  const [items, setItems] = useState(itemsFromStorage || []);
+  const [isEditable, setIsEditable] = useState(false);
+  const [editId, setEditId] = useState("-1");
+  localStorage.setItem("items", JSON.stringify(items));
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <MemoList
+        isEditable={isEditable}
+        setIsEditable={setIsEditable}
+        editId={editId}
+        setEditId={setEditId}
+        items={items}
+        setItems={setItems}
+      />
+      <MemoDetail
+        isEditable={isEditable}
+        setIsEditable={setIsEditable}
+        editId={editId}
+        setEditId={setEditId}
+        items={items}
+        setItems={setItems}
+      />
+    </>
   );
 }
 
