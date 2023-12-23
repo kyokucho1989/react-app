@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function MemoDetail({
   isEditable,
   setIsEditable,
@@ -33,8 +35,8 @@ export default function MemoDetail({
       {!isEditable ? (
         <></>
       ) : (
-        <div class="content_box">
-          <div class="content">
+        <div className="content_box">
+          <div className="content">
             <form method="post" onSubmit={saveItems}>
               <textarea name="postContent" defaultValue={items[editId]} />
               <button type="submit">編集</button>
@@ -48,3 +50,11 @@ export default function MemoDetail({
     </>
   );
 }
+
+MemoDetail.propTypes = {
+  isEditable: PropTypes.bool,
+  setIsEditable: PropTypes.func,
+  editId: PropTypes.func,
+  items: PropTypes.array,
+  setItems: PropTypes.func,
+};

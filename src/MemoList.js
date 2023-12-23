@@ -1,5 +1,6 @@
+import PropTypes from "prop-types";
+
 export default function MemoList({
-  isEditable,
   setIsEditable,
   setEditId,
   items,
@@ -24,10 +25,18 @@ export default function MemoList({
 
   return (
     <>
-      <div class="content_box">
+      <div className="content_box">
         <ul>{listItems}</ul>
         <button onClick={addItem}>+</button>
       </div>
     </>
   );
 }
+
+MemoList.propTypes = {
+  isEditable: PropTypes.bool,
+  setIsEditable: PropTypes.func,
+  setEditId: PropTypes.func,
+  items: PropTypes.array,
+  setItems: PropTypes.func,
+};

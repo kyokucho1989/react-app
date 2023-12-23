@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-      <div class="Memo_container">
+      <div className="Memo_container">
         <h1>{isEditable ? "編集" : "一覧"}</h1>
         <MemoList
           isEditable={isEditable}
