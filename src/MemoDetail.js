@@ -52,7 +52,7 @@ export default function MemoDetail({
 MemoDetail.propTypes = {
   isEditable: PropTypes.bool,
   setIsEditable: PropTypes.func,
-  editId: PropTypes.func,
+  editId: PropTypes.string,
   items: PropTypes.array,
   setItems: PropTypes.func,
 };
