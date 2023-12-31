@@ -8,8 +8,11 @@ function App() {
   const [items, setItems] = useState(itemsFromStorage || []);
   const [isEditable, setIsEditable] = useState(false);
   const [editId, setEditId] = useState("-1");
-  localStorage.setItem("items", JSON.stringify(items));
 
+  function setItemToLocalStorage(newItems) {
+    setItems(newItems);
+    localStorage.setItem("items", JSON.stringify(items));
+  }
   return (
     <>
       <div className="Memo_container">
@@ -19,14 +22,14 @@ function App() {
           setIsEditable={setIsEditable}
           setEditId={setEditId}
           items={items}
-          setItems={setItems}
+          setItems={setItemToLocalStorage}
         />
         <MemoDetail
           isEditable={isEditable}
           setIsEditable={setIsEditable}
           editId={editId}
           items={items}
-          setItems={setItems}
+          setItems={setItemToLocalStorage}
         />
       </div>
     </>
