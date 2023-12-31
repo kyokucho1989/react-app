@@ -12,8 +12,6 @@ export default function MemoDetail({
     const form = e.target;
     const formData = new FormData(form);
     let memoContent = Object.fromEntries(formData.entries()).postContent;
-    console.log(memoContent);
-    console.log(editId);
     const newItems = items.map((item, i) => {
       if (i === Number(editId)) {
         return memoContent;
