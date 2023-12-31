@@ -37,7 +37,7 @@ export default function MemoDetail({
           <div className="content">
             <form method="post" onSubmit={saveItems}>
               <textarea name="postContent" defaultValue={items[editId]} />
-              <button type="submit">編集</button>
+              <button type="submit">保存</button>
               <button type="delete" onClick={deleteItems}>
                 削除
               </button>
