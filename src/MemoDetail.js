@@ -1,4 +1,8 @@
 import PropTypes from "prop-types";
+import { useEffect } from "react";
+import { useContext } from "react";
+import { useState } from "react";
+import { AuthContext } from "./AuthContext.js";
 
 export default function MemoDetail({
   isEditable,
@@ -7,6 +11,12 @@ export default function MemoDetail({
   items,
   setItems,
 }) {
+  const [memoContent, setMemoContent] = useState(items[editId]);
+  useEffect(() => {
+    setMemoContent(items[editId]);
+  }, [editId, items]);
+
+  const { isLogin } = useContext(AuthContext);
   function saveItems(e) {
     e.preventDefault();
     const form = e.target;
@@ -36,11 +46,21 @@ export default function MemoDetail({
         <div className="content_box">
           <div className="content">
             <form method="post" onSubmit={saveItems}>
-              <textarea name="postContent" defaultValue={items[editId]} />
-              <button type="submit">保存</button>
-              <button type="delete" onClick={deleteItems}>
-                削除
-              </button>
+              <textarea
+                name="postContent"
+                value={memoContent}
+                onChange={(e) => setMemoContent(e.target.value)}
+              />
+              {isLogin ? (
+                <>
+                  <button type="submit">保存</button>
+                  <button type="delete" onClick={deleteItems}>
+                    削除
+                  </button>
+                </>
+              ) : (
+                <></>
+              )}
             </form>
           </div>
         </div>
