@@ -3,7 +3,7 @@ import MemoList from "./MemoList.js";
 import MemoDetail from "./MemoDetail.js";
 import Header from "./Header.js";
 import { useState } from "react";
-import { AuthContext } from "./AuthContext.js";
+import { AuthProvider } from "./AuthContext.js";
 
 function App() {
   const itemsFromStorage = JSON.parse(localStorage.getItem("items"));
@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <div className="Memo_container">
-        <AuthContext.Provider value={{ isLogin, setIsLogin }}>
+        <AuthProvider isLogin={isLogin} setIsLogin={setIsLogin}>
           <Header />
           <h1>{isEditable && isLogin ? "編集" : "一覧"}</h1>
           <MemoList
@@ -35,7 +35,7 @@ function App() {
             items={items}
             setItems={setItemToLocalStorage}
           />
-        </AuthContext.Provider>
+        </AuthProvider>
       </div>
     </>
   );
