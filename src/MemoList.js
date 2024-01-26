@@ -1,4 +1,6 @@
 import PropTypes from "prop-types";
+import { useContext } from "react";
+import { AuthContext } from "./AuthContext.js";
 
 export default function MemoList({
   setIsEditable,
@@ -6,6 +8,7 @@ export default function MemoList({
   items,
   setItems,
 }) {
+  const { isLogin } = useContext(AuthContext);
   const listItems = items.map((item, index) => (
     <li key={index} id={index} onClick={editItem}>
       {item.split("\n")[0]}
@@ -20,14 +23,14 @@ export default function MemoList({
   function addItem() {
     setIsEditable(true);
     setItems([...items, "新規メモ"]);
-    setEditId(items.length);
+    setEditId(items.length.toString());
   }
 
   return (
     <>
       <div className="content_box">
         <ul>{listItems}</ul>
-        <button onClick={addItem}>+</button>
+        {isLogin ? <button onClick={addItem}>+</button> : <></>}
       </div>
     </>
   );
